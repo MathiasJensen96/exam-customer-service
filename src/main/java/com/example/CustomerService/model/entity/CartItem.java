@@ -20,5 +20,4 @@ public class CartItem implements Serializable {
     private int id;
     private int menuItemId;
     private int quantity;
-
 }

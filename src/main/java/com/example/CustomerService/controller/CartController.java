@@ -15,7 +15,7 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "carts", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = "/carts", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class CartController {
     private final CustomerOrderService customerOrderService;
 

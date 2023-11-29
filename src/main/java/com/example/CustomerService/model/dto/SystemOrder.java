@@ -6,9 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
-public class CartItemDTO {
-    private int menuItemId;
-    private int quantity;
+public class SystemOrder {
+    private int systemOrderId;
 }

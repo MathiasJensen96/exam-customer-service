@@ -6,6 +6,7 @@ import com.example.CustomerService.model.entity.Customer;
 import com.example.CustomerService.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.common.internals.Topic;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequiredArgsConstructor
+import static com.example.CustomerService.model.enums.Topic.*;
+
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class CustomerService {
     private final CustomerRepository customerRepository;
@@ -48,7 +51,7 @@ public class CustomerService {
 
     public List<CustomerDTO> getCustomers() {
         List<CustomerDTO> customers = new ArrayList<>();
-        for (Customer customer: customerRepository.findAll()) {
+        for (Customer customer : customerRepository.findAll()) {
             customers.add(new CustomerDTO(customer));
         }
         return customers;
@@ -104,5 +107,43 @@ public class CustomerService {
         response.put("Deleted", Boolean.TRUE);
 
         return response;
+    }
+
+    public void notifyCustomer(CustomerDTO customer, Topic kafkaTopic) {
+        String subject = "";
+        String messageBody = "";
+
+        switch (kafkaTopic) {
+            case new_order_placed:
+                subject = "MTOGO: New order has been placed";
+                messageBody = "";
+                break;
+            case order_accepted:
+                subject = "MTOGO: Order has been accepted";
+                messageBody = "";
+                break;
+            case order_ready:
+                subject = "MTOGO: Order is ready for pickup";
+                messageBody = "";
+                break;
+            case order_cancelled:
+                subject = "MTOGO: Order has been cancelled";
+                messageBody = "";
+                break;
+            case order_picked_up:
+                subject = "MTOGO: Order has been picked up";
+                messageBody = "";
+                break;
+            case order_delivered:
+                subject = "MTOGO: Order has been delivered";
+                messageBody = "";
+                break;
+            case order_claimed:
+                subject = "MTOGO: Order has been claimed";
+                messageBody = "";
+                break;
+            default:
+                throw new RuntimeException("An error occurred in customer service when listening on kafka topic: {}" + kafkaTopic);
+        }
     }
 }
