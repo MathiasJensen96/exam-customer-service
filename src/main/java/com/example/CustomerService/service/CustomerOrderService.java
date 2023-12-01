@@ -28,6 +28,7 @@ public class CustomerOrderService {
     private final CustomerOrderRepository customerOrderRepository;
     private final CartRepository cartRepository;
     private final CustomerRepository customerRepository;
+    private final CamundaService camundaService;
     //private final RestaurantClient restaurantClient; //TODO: gRPC
 
     @Transactional
@@ -40,9 +41,9 @@ public class CustomerOrderService {
         Customer newCustomer = customerRepository.findById(data.getCustomerId())
                 .orElseThrow();
 
-        customerOrder.setCustomer(customer);
+        customerOrder.setCustomer(newCustomer);
 
-        customer.getCustomerOrder().add(customerOrder);
+        newCustomer.getCustomerOrder().add(customerOrder);
 
         return customerOrderRepository.save(customerOrder);
     }

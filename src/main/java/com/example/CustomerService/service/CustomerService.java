@@ -6,15 +6,12 @@ import com.example.CustomerService.model.entity.Customer;
 import com.example.CustomerService.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.internals.Topic;
+import com.example.CustomerService.model.enums.Topic;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.example.CustomerService.model.enums.Topic.*;
 
 @Slf4j
 @RequiredArgsConstructor

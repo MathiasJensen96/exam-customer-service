@@ -8,9 +8,9 @@ import com.example.CustomerService.model.entity.CustomerOrder;
 import com.example.CustomerService.model.enums.OrderStatus;
 import com.example.CustomerService.service.CustomerOrderService;
 import com.example.CustomerService.service.CustomerService;
+import com.example.CustomerService.model.enums.Topic;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.internals.Topic;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
