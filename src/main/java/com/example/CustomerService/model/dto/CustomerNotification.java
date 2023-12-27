@@ -6,9 +6,9 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
-public class CartItemDTO {
-    private int menuItemId;
-    private int quantity;
+public class CustomerNotification {
+    private String email;
+    private String subject;
+    private String message;
 }

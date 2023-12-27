@@ -16,7 +16,6 @@ public class NewCustomerOrder {
     private int id;
     private int restaurantId;
     private int customerId;
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
     private OrderStatus status;
     private boolean withDelivery;

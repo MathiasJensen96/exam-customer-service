@@ -32,7 +32,6 @@ public class CustomerOrder implements Serializable {
     private List<OrderItem> orderItems = new ArrayList<>();
     @Column(name = "created_time", nullable = false)
     @Temporal(TemporalType.DATE)
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
     @Column(name = "deliver", nullable = false)
     private boolean deliver;

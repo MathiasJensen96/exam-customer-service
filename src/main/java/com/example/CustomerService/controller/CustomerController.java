@@ -19,7 +19,7 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/customer", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = "/customers", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class CustomerController {
     private final CustomerService customerService;
 

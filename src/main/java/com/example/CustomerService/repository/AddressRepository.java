@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Integer> {
-
+    //TODO:
     @Query(value = "SELECT id FROM exam.address WHERE street = '?' AND number = ?", nativeQuery = true)
     Address checkAddress(@Param("street") String street, @Param("number") int number);
 
@@ -18,6 +18,4 @@ public interface AddressRepository extends JpaRepository<Address, Integer> {
     @Transactional
     @Query(value = "INSERT INTO exam.address (street, number) VALUES (?, ?)", nativeQuery = true)
     Address createAddress(@Param("street") String street, @Param("number") int number);
-
-
 }

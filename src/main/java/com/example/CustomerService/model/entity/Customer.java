@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,4 +30,7 @@ public class Customer implements Serializable {
     private int addressId;
     private String role;
     private String password;
+    @OneToMany(mappedBy = "customer",
+            fetch = FetchType.EAGER)
+    private List<CustomerOrder> customerOrder = new ArrayList<>();
 }
